@@ -34,17 +34,30 @@ public class ChainController extends BaseController {
 	@Resource
 	private HttpAPIService httpAPIService;
     
- 
     
     @RequestMapping("queryall")
     public Msg queryall() {
     	return ResultUtil.success(chainMapper.queryall());	
     }  
     
+    @RequestMapping("queryallcontract")
+    public Msg queryallcontract(Contract contract) {
+    	return ResultUtil.success(contractMapper.queryall(contract));	
+    }
+    
+    
     @RequestMapping("querycontract")
     public Msg querycontract(Contract contract) {
-    	return ResultUtil.success(contractMapper.queryall(contract));	
+    	return ResultUtil.success(contractMapper.querycontract(contract));	
     } 
-	
-	
+    
+    @RequestMapping("querycontractpass")
+    public Msg querycontractpass(Contract contract) {
+    	return ResultUtil.success(contractMapper.querycontractpass(contract));	
+    } 
+    
+    @RequestMapping("querycontractbyname")
+    public Msg querycontractbyname(Contract contract) {
+    	return ResultUtil.success(contractMapper.querycontractbyname(contract));	
+    }
 }

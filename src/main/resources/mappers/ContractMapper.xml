@@ -4,12 +4,24 @@
 
 	
 	<select id="queryall" parameterType="com.lxg.springboot.model.Contract" resultType="com.lxg.springboot.model.Contract">
-		select * from contract where chainid = #{chainid}
+		select * from contract
+	</select>
+	
+	<select id="querycontract" parameterType="com.lxg.springboot.model.Contract" resultType="com.lxg.springboot.model.Contract">
+		select * from contract where chainid=#{chainid}
+	</select>
+	
+	<select id="querycontractpass" parameterType="com.lxg.springboot.model.Contract" resultType="com.lxg.springboot.model.Contract">
+		select * from contract where chainid=#{chainid} and testflag=1
+	</select>
+	
+	<select id="querycontractbyname" parameterType="com.lxg.springboot.model.Contract" resultType="com.lxg.springboot.model.Contract">
+		select * from contract where chainid=#{chainid} and (name like CONCAT('%',#{name},'%'))
 	</select>
 	
 	<insert id="save" parameterType="com.lxg.springboot.model.Contract">
-		insert into contract(name,version,description,id,chainid,price,download,document,code)
-		values (#{name},#{version},#{description},#{id},#{chainid},#{price},#{download},#{document},#{code})
+		insert into contract(name,version,description,id,chainid,price,download,document,code,publisher)
+		values (#{name},#{version},#{description},#{id},#{chainid},#{price},#{download},#{document},#{code},#{publisher})
 	</insert>
 	
 	<update id="update" parameterType="com.lxg.springboot.model.User">

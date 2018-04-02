@@ -12,4 +12,10 @@ public interface ContractMapper {
 	
 	List<Contract> queryall(Contract contract);
 	
+	List<Contract> querycontract(Contract contract);
+	
+	List<Contract> querycontractpass(Contract contract);
+	
+	List<Contract> querycontractbyname(Contract contract);
+	
 }
